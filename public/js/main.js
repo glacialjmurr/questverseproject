@@ -223,8 +223,8 @@ function createPostElement(postData) {
     postElement.className = 'card mb-3 bg-dark text-white';
     postElement.innerHTML = `
         <div class="card-header">${username}</div>
-        <div class="card-body">
-            <p class="card-text">${content}</p>
+        <div class="card-body-post">
+            <p class="card-text-post">${content}</p>
         </div>
     `;
     return postElement;

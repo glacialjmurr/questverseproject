@@ -8,6 +8,40 @@
 </head>
 <body class ="bg-dark text-white">
 
+<style>
+
+
+  .card-header {
+  font-size: 1.25rem; /* Increase the font size */
+  font-weight: bold; /* Make the username bold */
+  color: orange; /* Change color, pick one that fits your design */
+}
+
+/* CSS for the post content */
+.card-body-post .card-text-post {
+  color: white; /* Change the text color to white */
+  padding: 15px;
+}
+
+#createPostBtn {
+  display: block; /* To ensure it takes up the full width available */
+  width: 80%; /* Or whatever width you prefer */
+  margin: 20px auto 10px; /* Top, Horizontal (auto centers it), Bottom spacing */
+  padding: 10px 0; /* Top and bottom padding to increase height, no left-right padding */
+  /* Other styles for color, border, etc. */
+  background-color: orange; /* Use your color variables or actual color codes */
+  border-color: orange;
+  /* Add a transition for smooth color change on hover */
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+#createPostBtn:hover {
+  background-color: orangered;
+  border-color: orangered;
+}
+
+</style>
+
     <div id="loginForm" class="content-section" style="display:none;">
         <body class="bg-dark">
             <div class="container">
@@ -151,7 +185,7 @@
                        
                   </div>
                   <div class="col-md-3">
-                    <button id="createPostBtn" class="btn btn-primary">Create Post</button>
+                    <button id="createPostBtn" class="btn btn-orange btn-lg btn-block">Create Post</button>
 
                     <!-- Add a modal structure for creating a post -->
                     <div class="modal" tabindex="-1" id="createPostModal">
