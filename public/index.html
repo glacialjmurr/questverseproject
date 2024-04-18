@@ -6,6 +6,9 @@
     <title>Questverse</title>
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
+<header>
+  
+</header>
 <body class ="bg-dark text-white">
 
 <style>
@@ -184,7 +187,31 @@
               color: white; 
           }
 
+          .recommended-users {
+            background: #333; /* Dark background for the container */
+            color: white;
+            padding: 10px;
+            border-radius: 5px; /* Slightly rounded corners */
+        }
 
+        .recommended-users .user-name {
+            background: #444; /* Slightly lighter background for each username */
+            margin: 5px 0; /* Add some margin between usernames */
+            padding: 8px;
+            border-radius: 3px; /* Slightly rounded corners for each username */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .recommended-users .user-name:hover {
+            background: #555; /* Slightly lighter background on hover */
+        }
+
+        .recommended-label {
+          color: white;
+          text-align: center;
+          margin-bottom: 10px; /* Add some space below the label */
+      } 
      </style>
 
       <body class="bg-dark text-white">
@@ -192,7 +219,10 @@
           <div class="container">
               <div class="row">
                   <div class="col-md-3">
-                      <!-- Left Sidebar Content -->
+                    <div id="recommendedContainer" class="recommended-users">
+                      <h3 id="recommendedLabel" class="recommended-label">Recommended Users</h3>
+                      <!-- Recommended users will be loaded here -->
+                    </div>                   
                   </div>
                   <div class="col-md-6">
                       <div class="card mb-3 bg-dark" data-bs-theme="dark">

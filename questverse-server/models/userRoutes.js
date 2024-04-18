@@ -206,5 +206,20 @@ router.get('/mystats', isAuthenticated, async (req, res) => {
   }
 });
 
+router.get('/recommended', isAuthenticated, async (req, res) => {
+  try {
+    const currentUser = req.user;
+    const randomUsers = await User.aggregate([
+      { $match: { _id: { $ne: currentUser._id } } }, // Exclude the current user
+      { $sample: { size: 5 } } // Get 5 random documents
+    ]).exec();
+
+    res.json(randomUsers);
+  } catch (error) {
+    console.error('Error fetching recommended users:', error);
+    res.status(500).json({ message: "Server error", error });
+  }
+});
+
 
 module.exports = router;

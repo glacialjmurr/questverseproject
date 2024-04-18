@@ -23,6 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });    
     });
 
+    document.querySelector('a[data-target="homeContent').addEventListener('click', function() {
+        // Display home content
+        const homeContent = document.getElementById('homeContent');
+        homeContent.style.display = 'block';
+    
+        // Call the function to load recommended users
+        loadRecommendedUsers();
+    });
+
     document.querySelector('a[data-target="newsContent"]').addEventListener('click', () => {
         document.getElementById('newsContent').style.display = 'block'; // Show news content div
         loadGamingNews(); // Load and display the news
@@ -100,6 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('registerForm').style.display = 'none';
             // Fetch and display posts from followed users
             loadFollowedPosts();
+            loadRecommendedUsers();
         })
         .catch(error => {
             console.error('Error:', error);
@@ -525,5 +535,43 @@ function loadGamingNews() {
   
     return card;
   }
+
+  
+  
+  // This function should be called when the home content is loaded
+function loadRecommendedUsers() {
+  fetch('/api/users/recommended', { credentials: 'include' })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error fetching recommended users');
+      }
+      return response.json();
+    })
+    .then(recommendedUsers => {
+        const recommendedContainer = document.getElementById('recommendedContainer');
+        // Clear any previously loaded recommended users, but leave the label intact
+        const usersOnly = Array.from(recommendedContainer.children).filter(child => child.id !== 'recommendedLabel');
+        usersOnly.forEach(child => child.remove());
+
+        recommendedUsers.forEach(user => {
+            const userElement = createUserElement(user);
+            recommendedContainer.appendChild(userElement);
+      });
+    })
+    .catch(err => {
+      console.error('Failed to load recommended users:', err);
+    });
+}
+
+// Helper function to create HTML element for user
+function createUserElement(user) {
+  const userDiv = document.createElement('div');
+  // Add classes and inner HTML setup for the userDiv
+  userDiv.innerHTML = `<p>${user.username}</p>`; // Adjust as per your HTML structure
+  return userDiv;
+}
+
+  
+  
 
   
