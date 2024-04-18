@@ -507,15 +507,23 @@ function loadGamingNews() {
   
     const readMore = document.createElement('a');
     readMore.href = article.url;
-    readMore.className = 'btn btn-primary';
+    readMore.className = 'btn btn-primary-news';
     readMore.textContent = 'Read More';
     readMore.target = '_blank';  // Open in a new tab
+
+    const likeButton = document.createElement('a');
+    likeButton.className = 'btn btn-primary-likenews';
+    likeButton.textContent = 'Like';
   
     cardBody.appendChild(title);
     cardBody.appendChild(text);
     cardBody.appendChild(readMore);
+    cardBody.appendChild(likeButton);
     card.appendChild(img);
     card.appendChild(cardBody);
+    
   
     return card;
   }
+
+  
