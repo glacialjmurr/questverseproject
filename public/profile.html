@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<style>
+    .cover-container {
+        position: relative;
+        width: 100%;
+    }
+    
+    .coverPhoto {
+        height: 300px; 
+        position: relative;
+        z-index: 1;
+    }
+    
+    .circular-container {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: black;
+        padding: 20px;
+        border: solid 2px white;
+        position: absolute;
+        left: 50%; /* Center horizontally */
+        bottom: -1px; /* Half outside the bottom of the cover photo */
+        transform: translateX(-50%); /* Adjust for exact centering */
+        z-index: 3;
+    }
+    
+    .user-avatar {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+    
+    .white-bar {
+        height: 75px;
+        background-color: grey;
+        color: white;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0; 
+        z-index: 2; 
+    }
+    
+    .white-bar-content {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+    }
+        </style>
+
+<div class="cover-container">
+<div class="coverPhoto">
+  <img src="images/coverPhoto.png" class="img-fluid" alt="coverPhoto" style="width: 100%; height:220px">
+</div>
+<div class="circular-container">
+  <!-- Content for the profile picture goes here -->
+  <img src="images/userAvatar.png" class="user-avatar" alt="User Avatar">   
+</div>
+<div class="white-bar">
+  <!-- Elements for posts, followers, following, achievements go here -->
+  <div class="white-bar-content">
+      <span>Posts: 120</span>
+      <span>Followers: 3400</span>
+      <span>Following: 300</span>
+      <span>Achievements: 5</span>
+  </div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-3">
+    <!-- Left Sidebar Content -->
+</div>
+<div class="col-md-6">
+    <div class="card mb-3 bg-dark" data-bs-theme="dark">
+        <div class="card-header">
+            <img src="images/userAvatar.png" class="user-post-avatar" alt="User Avatar">
+            <h5 class="card-title">Username</h5>
+            <style>
+                .user-post-avatar {
+                    width: 50px; 
+                    height: 50px; 
+                    border-radius: 50%; 
+                    margin: 10px; 
+                }
+             </style>
+        </div>
+        <div class="card-body">
+            <p class="card-text">This is a sample user post.</p>
+        </div>
+     </div>
+
+     <div class="card mb-3 bg-dark" data-bs-theme="dark">
+        <div class="card-header">
+            <img src="images/userAvatar.png" class="user-post-avatar" alt="User Avatar">
+            <h5 class="card-title">Username</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">This is a sample user post.</p>
+        </div>
+     </div>
+
+     <div class="card mb-3 bg-dark" data-bs-theme="dark">
+        <div class="card-header">
+            <img src="images/userAvatar.png" class="user-post-avatar" alt="User Avatar">
+            <h5 class="card-title">Username</h5>
+            
+        </div>
+        <div class="card-body">
+            <p class="card-text">This is a sample user post.</p>
+        </div>
+     </div>
+
+     <div class="card mb-3 bg-dark" data-bs-theme="dark">
+        <div class="card-header">
+            <img src="images/userAvatar.png" class="user-post-avatar" alt="User Avatar">
+            <h5 class="card-title">Username</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">This is a sample user post.</p>
+        </div>
+     </div>
+</div>
+<div class="col-md-3">
+    <!-- Right Sidebar Content -->
+
+</div>
+</div>
+</div>
+    

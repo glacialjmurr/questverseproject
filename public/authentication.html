@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+    <form id="loginForm" class="content-section" style="display:none;">
+        <body class="bg-dark">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card my-5">
+                            <div class="card-body">
+                                <h2 class="card-title text-center">Login</h2>
+                                <form>
+                                    <div class="mb-3">
+                                      <label for="loginEmail" class="form-label">Email address</label>
+                                      <input type="email" class="form-control" id="loginEmail" required>
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="loginPassword" class="form-label">Password</label>
+                                      <input type="password" class="form-control" id="loginPassword" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                                </form>
+                                <p class="text-center">
+                                    New here? <a href="#" onclick="showRegisterForm()">Click me to register!</a>
+                                  </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>     
+            </div>
+        </body>
+    </form>
+
+      <form id="registerForm" class="content-section" >
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="card my-5">
+                <div class="card-body">
+                  <h2 class="card-title text-center">Register</h2>
+                  <form>
+                    <div class="mb-3">
+                      <label for="registerUsername" class="form-label">Username</label>
+                      <input type="text" class="form-control" id="registerUsername" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="registerEmail" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="registerEmail" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="registerPassword" class="form-label">Password</label>
+                      <input type="password" class="form-control" id="registerPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                  </form>
+                  <p class="text-center mt-3">
+                    Already have an account? <a href="#" onclick="showLoginForm()">Click me to sign in!</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>     
+        </div>
+      </form>
+  
+<script>
+     function showLoginForm() {
+      document.getElementById('loginForm').style.display = 'block';
+      document.getElementById('registerForm').style.display = 'none';
+    }
+
+    function showRegisterForm() {
+      document.getElementById('registerForm').style.display = 'block';
+      document.getElementById('loginForm').style.display = 'none';
+    }
+</script>
+</html>
