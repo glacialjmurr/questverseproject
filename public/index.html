@@ -6,9 +6,7 @@
     <title>Questverse</title>
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
-<header>
-  
-</header>
+
 <body class ="bg-dark text-white">
 
 <style>
@@ -61,6 +59,28 @@
 
 .btn-primary-likenews:hover{
   background-color: orangered; /* Darker shade on hover */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#homeContent {
+  min-height: 100%; /* Full height */
+  display: flex;
+  flex-direction: column;
+}
+
+.content-section {
+  flex: 1; /* This will make the content-section grow to occupy the space */
+}
+
+.footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 
 </style>
@@ -301,8 +321,6 @@
 
                       <li><a class="nav-link" href="#">Achievements</a></li>
                     </ul>
-
-
                 </ul>
                 <form class="d-flex" role="search">
                   <span class="input-group-text" id="basic-addon1">@</span>

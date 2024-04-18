@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector('a[data-target="profileContent"]').addEventListener('click', loadUserProfile);
     const createPostBtn = document.getElementById('createPostBtn');
     const submitPostBtn = document.getElementById('submitPostBtn');
     const postModal = new bootstrap.Modal(document.getElementById('createPostModal'));
@@ -32,10 +31,23 @@ document.addEventListener("DOMContentLoaded", () => {
         loadRecommendedUsers();
     });
 
-    document.querySelector('a[data-target="newsContent"]').addEventListener('click', () => {
-        document.getElementById('newsContent').style.display = 'block'; // Show news content div
-        loadGamingNews(); // Load and display the news
-    });
+    document.querySelector('a[data-target="profileContent"]').addEventListener('click', loadUserProfile);
+
+    document.addEventListener('click', function(event) {
+        if (event.target.matches('a[data-target="newsContent"]')) {
+          // Prevent default link behavior
+          event.preventDefault();
+          
+          // Hide all content sections
+          document.querySelectorAll('.content-section').forEach(section => {
+            section.style.display = 'none';
+          });
+          
+          // Show the news content section and load news
+          document.getElementById('newsContent').style.display = 'block';
+          loadGamingNews();
+        }
+      });
 
     // Open the create post modal
     createPostBtn.addEventListener('click', () => {
