@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
           .then(data => {
             addPostToHomeFeed(data); // Update the UI with the new post
             document.getElementById('postText').value = ''; // Clear the input field
+            refreshFooterLevel(); 
           })
           .catch(error => {
             console.error('Error:', error);
