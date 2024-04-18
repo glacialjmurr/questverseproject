@@ -62,13 +62,25 @@ router.post('/', isAuthenticated, async (req, res) => {
     // Save the new post to the database
     await newPost.save();
 
+    // Increment user XP and check for level up
+    user.xp += 10; // Increment XP by 10 or some other value you see fit
+    if (user.xp >= 100) {
+      user.level+=1; // Increment the user's level
+      user.xp -= 100; // Reset XP to zero, but keep the overflow
+    }
+
+    // Save the updated user to the database
+    await user.save();
+
     // Return the newly created post with the user's username
     res.status(201).json({
       _id: newPost._id,
       content: newPost.content,
       userId: {
         _id: user._id,
-        username: user.username // Include the username in the response
+        username: user.username, 
+        level: user.level, 
+        xp: user.xp 
       },
       createdAt: newPost.createdAt,
       updatedAt: newPost.updatedAt

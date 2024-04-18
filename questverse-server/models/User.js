@@ -26,7 +26,17 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     default: []
-  }]
+  }],
+  level: {
+    type: Number,
+    ref: 'User',
+    default: 1 // Start at level 1
+  },
+  xp: {
+    type: Number,
+    ref: 'User',
+    default: 0 // Start with 0 XP
+  }
 });
 
 // Pre-save hook to hash password before saving a new user

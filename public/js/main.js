@@ -122,6 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Fetch and display posts from followed users
             loadFollowedPosts();
             loadRecommendedUsers();
+            refreshFooterLevel();
         })
         .catch(error => {
             console.error('Error:', error);
@@ -582,6 +583,32 @@ function createUserElement(user) {
   userDiv.innerHTML = `<p>${user.username}</p>`; // Adjust as per your HTML structure
   return userDiv;
 }
+
+function refreshFooterLevel() {
+    // Fetch the current user's level and XP
+    fetch('/api/users/mystats', { credentials: 'include' })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error fetching user stats');
+        }
+        return response.json();
+      })
+      .then(stats => {
+        const level = stats.level;
+        const xp = stats.xp;
+        
+        // Update the progress bar and level display
+        const levelDisplay = document.getElementById('levelDisplay');
+        const progressBar = document.querySelector('.progress-bar');
+        
+        levelDisplay.textContent = `Level ${level}`;
+        progressBar.style.width = `${xp}%`;
+        progressBar.textContent = `${xp}/100`;
+      })
+      .catch(err => {
+        console.error('Failed to load user level and XP:', err);
+      });
+  }
 
   
   

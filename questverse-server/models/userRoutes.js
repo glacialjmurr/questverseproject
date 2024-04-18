@@ -194,11 +194,15 @@ router.get('/mystats', isAuthenticated, async (req, res) => {
     const postsCount = await Post.countDocuments({ userId });
     const followersCount = req.user.followers.length;
     const followingCount = req.user.following.length;
+    const level = req.user.level; // Assuming level is stored in the user document
+    const xp = req.user.xp; // Assuming xp is stored in the user document
 
     res.json({
       postsCount,
       followersCount,
-      followingCount
+      followingCount,
+      level, // Include level in the response
+      xp // Include xp in the response
     });
   } catch (error) {
     console.error('Failed to fetch user stats:', error);

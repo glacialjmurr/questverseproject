@@ -13,12 +13,12 @@ mongoose.connect(mongoURI, {
 
 async function updateSchema() {
   try {
-    // Find all users that do not have the 'followers' field
-    const users = await User.find({ followers: { $exists: false } });
+    const users = await User.find({});
 
     // Update each user
     for (const user of users) {
-      user.followers = []; // Initialize followers as an empty array
+      user.level = user.level || 1; // Default level to 1 if not set
+      user.xp = user.xp || 0; // Default xp to 0 if not set
       await user.save();
       console.log(`Updated user ${user.username}`);
     }
