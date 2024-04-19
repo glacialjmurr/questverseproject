@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Questverse</title>
     <link rel="stylesheet" href="css/bootstrap.css">
+    
 </head>
 
 <body class ="bg-dark text-white">
@@ -340,29 +341,40 @@
         }
 
         .circular-container {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             background-color: black;
-            padding: 20px;
+            padding:0;
             border: solid 2px white;
             position: absolute;
-            left: 50%; /* Center horizontally */
-            bottom: -1px; /* Half outside the bottom of the cover photo */
-            transform: translateX(-50%); /* Adjust for exact centering */
+            top: 20%;
+            left: 45%; /* Center horizontally */
+            bottom: 50%; /* Half outside the bottom of the cover photo */
+            transform: translateX(-30%, -5%); /* Adjust for exact centering */
             z-index: 3;
         }
+
+        .level-display {
+        color: orange; /* Adjust the color to fit your design */
+        font-size: 3rem; /* Big font size for the level */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
 
         .user-avatar {
             width: 100%;
             height: 100%;
             border-radius: 50%;
+            object-fit: cover;
         }
 
         .white-bar {
             height: 75px;
-            background-color: grey;
-            color: white;
+            background-color: orange; /* Updated color */
+            color: black; /* Updated text color */
             position: absolute;
             left: 0;
             right: 0;
@@ -375,7 +387,40 @@
             justify-content: space-around;
             align-items: center;
             height: 100%;
+            font-weight: bold; /* Make text bold */
+            font-size: 1.2em; /* Increase font size */
         }
+
+        #follow-btn {
+        background-color: orangered; /* Bootstrap orange color */
+        border: none;
+        color: black;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 12px; /* Rounded corners for the button */
+        box-shadow: 0 4px #999; /* Optional: to add a shadow effect */
+    }
+
+    /* Button hover effect */
+        #follow-btn:hover {
+        background-color: red; /* Darker shade of orange */
+        box-shadow: 0 5px #666; /* Shadow effect on hover */
+        transform: translateY(-2px); /* Slight raise effect on hover */
+      }
+
+    /* Button active/click effect */
+        #follow-btn:active {
+        background-color: #d35400; /* Even darker shade of orange */
+        box-shadow: 0 2px #666; /* Less shadow when clicked */
+        transform: translateY(2px); /* Depress effect on click */
+    }
+
+
             </style>
 
 <div class="cover-container">
@@ -384,7 +429,7 @@
   </div>
   <div class="circular-container">
       <!-- Content for the profile picture goes here -->
-      <img src="images/userAvatar.png" class="user-avatar" alt="User Avatar">   
+      <div id="userLevelDisplay" class="level-display">Level 1</div> 
   </div>
   <div class="white-bar">
       <!-- Elements for posts, followers, following, achievements go here -->

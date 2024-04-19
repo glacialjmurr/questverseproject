@@ -157,6 +157,7 @@ router.get('/user/:username', async (req, res) => {
     const postsCount = await Post.countDocuments({ userId: user._id });
     const followersCount = user.followers ? user.followers.length : 0;
     const followingCount = user.following ? user.following.length : 0;
+    const level = user.level;
 
     // Optionally include user's posts in the response
     const posts = await Post.find({ userId: user._id })
@@ -168,6 +169,7 @@ router.get('/user/:username', async (req, res) => {
       followersCount,
       followingCount,
       postsCount,
+      level,
       posts  // You might or might not want to include posts based on your frontend needs
     });
   } catch (error) {

@@ -277,6 +277,11 @@ function clearProfile() {
     if (followButton) {
         followButton.remove();  // Remove the follow button if it exists
     }
+
+    const userLevelDisplay = document.getElementById('userLevelDisplay');
+    if(userLevelDisplay) {
+        userLevelDisplay.textContent = '';
+    }
 }
 
 function loadUserProfile() {
@@ -296,6 +301,10 @@ function loadUserProfile() {
         document.getElementById('postCount').textContent = stats.postsCount;
         document.getElementById('followersCount').textContent = stats.followersCount;
         document.getElementById('followingCount').textContent = stats.followingCount;
+
+        // Update the level display
+        const userLevelDisplay = document.getElementById('userLevelDisplay');
+        userLevelDisplay.textContent = `LVL ${stats.level}`;
   
         // Continue to fetch and display the user's posts...
         return fetch('/api/posts/byuser', { credentials: 'include' });
@@ -340,7 +349,7 @@ function searchUserByUsername(username) {
     })
     .then(data => {
         console.log(data);
-        const { user, posts, postsCount, followersCount, followingCount  } = data; // Assuming the backend sends it in this structure
+        const { user, posts, postsCount, followersCount, followingCount, level  } = data; // Assuming the backend sends it in this structure
         const userProfileContainer = document.getElementById('userPostsContainer');
         userProfileContainer.innerHTML = ''; // Clear existing posts
 
@@ -360,6 +369,8 @@ function searchUserByUsername(username) {
         document.getElementById('postCount').textContent = postsCount;
         document.getElementById('followersCount').textContent = followersCount;
         document.getElementById('followingCount').textContent = followingCount;
+        document.getElementById('userLevelDisplay').textContent = userLevelDisplay;
+        userLevelDisplay.textContent = `LVL ${level}`;
 
         
      // Fetch following status
