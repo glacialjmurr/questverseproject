@@ -86,16 +86,14 @@ router.post('/login', async (req, res) => {
 });
 
   // Logout Endpoint
-router.get('/logout', (req, res) => {
-    req.session.destroy(err => {
-      if (err) {
-        return res.status(500).json({ message: 'Error logging out' });
-      }
-      // Optionally clear the client-side cookie if set
-      res.clearCookie('connect.sid'); // Use the name of your session ID cookie
-      res.status(200).json({ message: 'Logout successful' });
-    });
-  });
+  router.get('/logout', (req, res) => {
+    // Clear user-related data from the session
+    delete req.session.userId;
+    // Optionally, clear any other user-related data from the session
+
+    res.status(200).json({ message: 'Logout successful' });
+});
+
 
   // Following a user
   router.post('/follow/:userId', isAuthenticated, async (req, res) => {
@@ -210,6 +208,7 @@ router.get('/mystats', isAuthenticated, async (req, res) => {
   }
 });
 
+
 router.get('/recommended', isAuthenticated, async (req, res) => {
   try {
     const currentUser = req.user;
@@ -222,6 +221,35 @@ router.get('/recommended', isAuthenticated, async (req, res) => {
   } catch (error) {
     console.error('Error fetching recommended users:', error);
     res.status(500).json({ message: "Server error", error });
+  }
+});
+
+router.delete('/delete', async (req, res) => {
+  try {
+      // Get the user ID from the session
+      const userId = req.session.userId;
+
+      // Check if the user is logged in
+      if (!userId) {
+          return res.status(401).json({ message: 'Unauthorized' });
+      }
+
+      // Delete the user from the database
+      await User.findByIdAndDelete(userId);
+
+      // Clear the user session
+      req.session.destroy((err) => {
+          if (err) {
+              console.error('Error destroying session:', err);
+              return res.status(500).json({ message: 'Error destroying session' });
+          }
+          res.clearCookie('connect.sid'); // Clear session cookie
+          res.status(200).json({ message: 'User account deleted successfully' });
+      });
+  } catch (error) {
+      // Handle errors
+      console.error('Error deleting user account:', error);
+      res.status(500).json({ error: 'Internal server error' });
   }
 });
 

@@ -7,6 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initially show the register content
     document.getElementById('registerForm').style.display = 'block';
 
+    document.getElementById('deleteAccountBtn').addEventListener('click', () => {
+        if (confirm('Are you sure you want to delete your account?')) {
+            deleteAccount();
+        }
+    });
+
     
     // Attach event listeners to navigation links
     document.querySelectorAll('.nav-link').forEach(link => {
@@ -250,9 +256,12 @@ function createPostElement(postData) {
         <div class="card-body-post">
             <p class="card-text-post">${content}</p>
         </div>
+        
     `;
     return postElement;
 }
+
+  
 
 function clearProfile() {
     const userProfileContainer = document.getElementById('userPostsContainer');
@@ -329,10 +338,8 @@ function loadUserProfile() {
 
 function searchUserByUsername(username) {
     clearProfile();  // Clear profile before loading new data
-    document.querySelectorAll('.content-section').forEach(section => {
-        section.style.display = 'none';
-    });
-    document.getElementById('profileContent').style.display = 'block';
+    
+    
 
     // Fetch the user's posts by username. Adjust the endpoint as necessary.
     fetch(`/api/posts/user/${username}`, { // Assuming you create this endpoint
@@ -343,12 +350,22 @@ function searchUserByUsername(username) {
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error('Failed to fetch user posts');
+            if(response.status === 404) {
+                alert('User does not exist'); 
+                throw new Error('User does not exist'); 
+            } else {
+                alert('An error occurred while fetching user data'); 
+                throw new Error('An error occurred while fetching user data');
+            }
         }
         return response.json();
     })
     .then(data => {
         console.log(data);
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.style.display = 'none';
+        });
+        document.getElementById('profileContent').style.display = 'block';
         const { user, posts, postsCount, followersCount, followingCount, level  } = data; // Assuming the backend sends it in this structure
         const userProfileContainer = document.getElementById('userPostsContainer');
         userProfileContainer.innerHTML = ''; // Clear existing posts
@@ -590,11 +607,17 @@ function loadRecommendedUsers() {
 
 // Helper function to create HTML element for user
 function createUserElement(user) {
-  const userDiv = document.createElement('div');
-  // Add classes and inner HTML setup for the userDiv
-  userDiv.innerHTML = `<p>${user.username}</p>`; // Adjust as per your HTML structure
-  return userDiv;
-}
+    const userDiv = document.createElement('div');
+    userDiv.classList.add('user-name'); // This class should match the one defined in the CSS
+    userDiv.innerHTML = `<p class="mb-0">${user.username}</p>`; // Use a paragraph with a class to remove default margin
+    userDiv.addEventListener('click', () => {
+      // Add event listener for click if you want to do something when user clicks on a recommended user
+      // For example, redirect to the user's profile or load the user's profile in the existing page
+      console.log('User clicked:', user.username); // Placeholder for actual functionality
+      searchUserByUsername(user.username);
+    });
+    return userDiv;
+  }
 
 function refreshFooterLevel() {
     // Fetch the current user's level and XP
@@ -621,6 +644,39 @@ function refreshFooterLevel() {
         console.error('Failed to load user level and XP:', err);
       });
   }
+
+  function logout() {
+    // Hide all content sections except the login content
+    document.querySelectorAll('.content-section').forEach(section => {
+        section.style.display = 'none';
+    });
+    document.getElementById('loginForm').style.display = 'block';
+}
+
+  function deleteAccount() {
+    fetch('/api/users/delete', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            // Include any necessary headers like authorization tokens
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to delete account');
+        }
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.style.display = 'none';
+        });
+        document.getElementById('registerForm').style.display = 'block';
+        // Optionally, display a confirmation message
+        alert('Your account has been successfully deleted.');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Failed to delete account: ' + error.message);
+    });
+}
 
   
   

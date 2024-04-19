@@ -16,8 +16,8 @@ app.use(session({
   secret: 'hello-new-user-session', 
   resave: false,
   saveUninitialized: true,
-  cookie: {
-    maxAge: 3600000 // session max age in milliseconds
+  cookie:  {
+    maxAge: 3600000
   }
 }));
 
@@ -42,6 +42,8 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
+
+
 
 
 

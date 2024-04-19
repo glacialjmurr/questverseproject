@@ -109,40 +109,9 @@ router.get('/byuser', (req, res) => {
       });
 });
 
-// Endpoint to handle liking a post
-router.post('/:postId/like', isAuthenticated, async (req, res) => {
-  try {
-    const post = await Post.findById(req.params.postId);
-    const index = post.likes.indexOf(req.user._id);
-    if (index === -1) {
-      // Like the post
-      post.likes.push(req.user._id);
-    } else {
-      // Remove like
-      post.likes.splice(index, 1);
-    }
-    await post.save();
-    res.json(post);
-  } catch (error) {
-    res.status(500).send(error);
-  }
-});
 
-// Endpoint to comment on a post
-router.post('/:postId/comment', isAuthenticated, async (req, res) => {
-  try {
-    const post = await Post.findById(req.params.postId);
-    const comment = {
-      userId: req.user._id,
-      text: req.body.text
-    };
-    post.comments.push(comment);
-    await post.save();
-    res.json(post);
-  } catch (error) {
-    res.status(500).send(error);
-  }
-});
+
+
 
 // Search for a user by username
 // In userRoutes.js or postRoutes.js, based on your organization

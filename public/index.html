@@ -171,14 +171,18 @@
                   </li>
 
                   <li class="nav-item">
-                  <a class="nav-link" href="#settings" data-target="settingsContent">Settings</a>
+                  <a class="nav-link" href="#settings" data-target="settingsContent">Account Management</a>
                   </li>
 
-                      <li><a class="nav-link" href="#">Achievements</a></li>
+                     
                     </ul>
 
+                    <li class="nav-item">
+                      <button type="button" class="btn btn-outline-danger" onclick="logout()">Logout</button>
+                  </li>
 
-                </ul>
+
+              
                 <form class="d-flex" role="search">
                     <span class="input-group-text" id="basic-addon1">@</span>
                     <input type="text" class="form-control" id="searchUserInput" placeholder="Username" aria-label="Username" aria->
@@ -206,30 +210,44 @@
           }
 
           .recommended-users {
-            background: #333; /* Dark background for the container */
-            color: white;
-            padding: 10px;
-            border-radius: 5px; /* Slightly rounded corners */
-        }
-
-        .recommended-users .user-name {
-            background: #444; /* Slightly lighter background for each username */
-            margin: 5px 0; /* Add some margin between usernames */
-            padding: 8px;
-            border-radius: 3px; /* Slightly rounded corners for each username */
-            cursor: pointer; /* Pointer cursor on hover */
-            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-        }
-
-        .recommended-users .user-name:hover {
-            background: #555; /* Slightly lighter background on hover */
+          background: #2c2f33; /* Match dark theme background */
+          
+          border: 1px solid #4f545c; /* Slight border to define the box */
+          color: #fff; /* White text for readability */
+          padding: 20px;
+          border-radius: 8px; /* Rounded corners */
+          box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+          margin-bottom: 20px; /* Space from the next element */
         }
 
         .recommended-label {
-          color: white;
-          text-align: center;
-          margin-bottom: 10px; /* Add some space below the label */
-      } 
+          color: #d1d1d1; /* Slightly lighter grey for the label */
+          text-align: left; /* Align left for consistency with other text */
+          font-weight: 700; /* Bold font weight for the label */
+          margin-bottom: 15px; /* Add some space below the label */
+          border-bottom: 2px solid #4f545c; /* Underline for emphasis */
+          padding-bottom: 5px; /* Padding to lift text off the underline */
+        }
+
+        .recommended-users .user-name {
+          background: #373b40; /* Slightly lighter background for each user */
+          margin: 10px 0; /* Add some margin between user names */
+          padding: 12px 15px; /* Ample padding for touch targets */
+          border-radius: 4px; /* Rounded corners for each user */
+          cursor: pointer; /* Pointer cursor on hover */
+          transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+          display: block; /* Block display to allow full-width interaction area */
+          font-weight: 500; /* Medium font weight for readability */
+        }
+
+        .recommended-users .user-name:hover {
+          background: #3e4349; /* Lighten background on hover */
+          color: #ffffff; /* Keep text color consistent */
+          text-decoration: none; /* Remove any underline on hover */
+        }
+
+        
+
      </style>
 
       <body class="bg-dark text-white">
@@ -319,7 +337,10 @@
 
                       <li><a class="nav-link" href="#">Achievements</a></li>
                     </ul>
-                </ul>
+                    
+                    <li class="nav-item">
+                      <button type="button" class="btn btn-outline-danger" onclick="logout()">Logout</button>
+                  </li>
                 <form class="d-flex" role="search">
                   <span class="input-group-text" id="basic-addon1">@</span>
                   <input type="text" class="form-control" id="searchUserInput" placeholder="Username" aria-label="Username" aria->
@@ -461,6 +482,49 @@
 </div>
 
   <div id="settingsContent" class="content-section" style="display:none;">
+    <header>
+      <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" id="mainNavbar" data-bs-theme="dark">
+          <div class="container">
+            <a class="navbar-brand" href="#">
+              <img src="images/joystick.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="#home" data-target="homeContent">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#news" data-target="newsContent">News</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#profile" data-target="profileContent">Profile</a>
+                </li>
+
+                <li class="nav-item">
+                <a class="nav-link" href="#settings" data-target="settingsContent">Settings</a>
+                </li>
+
+                    <li><a class="nav-link" href="#">Achievements</a></li>
+                  </ul>
+
+                  <li class="nav-item">
+                    <button type="button" class="btn btn-outline-danger" onclick="logout()">Logout</button>
+                </li>
+
+
+            
+              <form class="d-flex" role="search">
+                  <span class="input-group-text" id="basic-addon1">@</span>
+                  <input type="text" class="form-control" id="searchUserInput" placeholder="Username" aria-label="Username" aria->
+              </form>
+              
+            </div>
+          </div>
+        </nav>
+      </header>  
     <style>
       .dark-theme {
       background-color: #343a40; /* Dark background */
@@ -478,61 +542,11 @@
     <h1 class="text-center">Settings</h1>
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <form>
-                <!-- Theme Changer -->
-                <div class="mb-3">
-                    <label for="themeSelector" class="form-label">Theme</label>
-                    <select class="form-select" id="themeSelector">
-                        <option value="light">Light</option>
-                        <option value="dark">Dark</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Username">
-                </div>
-
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Email">
-                </div>
-
-                <!-- Notification Settings -->
-                <div class="mb-3">
-                    <label class="form-label">Notifications</label>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="emailNotifications">
-                        <label class="form-check-label" for="emailNotifications">Email Notifications</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="pushNotifications">
-                        <label class="form-check-label" for="pushNotifications">Push Notifications</label>
-                    </div>
-                </div>
-
-                <!-- Privacy Settings -->
-                <div class="mb-3">
-                    <label class="form-label">Privacy</label>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="profilePrivate">
-                        <label class="form-check-label" for="profilePrivate">Make Profile Private</label>
-                    </div>
-                </div>
-
-                <!-- Language Settings -->
-                <div class="mb-3">
-                    <label for="languageSelector" class="form-label">Language</label>
-                    <select class="form-select" id="languageSelector">
-                        <option value="english">English</option>
-                        <option value="spanish">Spanish</option>
-                        <!-- Additional languages -->
-                    </select>
-                </div>
-
-
-                <!-- Additional settings fields here -->
-            </form>
+              <h2>Account Management</h2>
+            <div id="deleteAccountSection">
+            <p>If you wish to delete your account, click the button below.</p>
+            <button id="deleteAccountBtn" class="btn btn-danger">Delete Account</button>
+          </div>
         </div>
     </div>
 </main>
@@ -568,7 +582,9 @@
                   </ul>
 
 
-              </ul>
+                  <li class="nav-item">
+                    <button type="button" class="btn btn-outline-danger" onclick="logout()">Logout</button>
+                </li>
               <form class="d-flex" role="search">
                 <span class="input-group-text" id="basic-addon1">@</span>
                 <input type="text" class="form-control" id="searchUserInput" placeholder="Username" aria-label="Username" aria->
