@@ -7,8 +7,8 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 async function connectDB() {
   try {
     await client.connect();
-    console.log("Connected to MongoDB");
-    return client.db('questVerse'); 
+    console.log("Connected to QuestVerse-DB");
+    return client.db('questverse-db'); 
   } catch (error) {
     console.error("Could not connect to MongoDB", error);
     process.exit(1);
