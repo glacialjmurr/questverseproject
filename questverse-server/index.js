@@ -22,7 +22,8 @@ app.use(session({
 }));
 
 app.use(cors({
-  origin: 'http://localhost:3000', 
+  origin: ['http://localhost:3000', 'http://<Your_EC2_Public_IP>:3000'], 
+  credentials: true, 
 }));
 
 app.use('/api/users', userRoutes);
@@ -49,6 +50,6 @@ app.get('/', (req, res) => {
 
 // Start the server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
 });
