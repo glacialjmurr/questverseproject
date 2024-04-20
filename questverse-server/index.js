@@ -22,7 +22,7 @@ app.use(session({
 }));
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://<Your_EC2_Public_IP>:3000'], 
+  origin: ['http://localhost:3000', 'http://13.48.104.96:3000'], 
   credentials: true, 
 }));
 
