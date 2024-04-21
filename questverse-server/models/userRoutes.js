@@ -231,6 +231,21 @@ router.delete('/delete', async (req, res) => {
           return res.status(401).json({ message: 'Unauthorized' });
       }
 
+      const usersFollowing = await User.find({ following: userId });
+      const usersFollowers = await User.find({ followers: userId });
+
+      // Remove userId from following list of other users
+      for (let user of usersFollowing) {
+        user.following.pull(userId);
+        await user.save();
+      }
+
+      // Remove userId from followers list of other users
+      for (let user of usersFollowers) {
+        user.followers.pull(userId);
+        await user.save();
+      }
+
       // Delete the user from the database
       await User.findByIdAndDelete(userId);
 
