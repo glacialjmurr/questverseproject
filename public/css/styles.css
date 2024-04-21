@@ -94,3 +94,11 @@ a:hover {
     color: #fbbc05; /* Make it the same color as your primary buttons for consistency */
 }
 
+.news-title {
+    color: #ffffff; /* Set the title text to white */
+}
+
+/* Assuming the description has a class 'news-desc' */
+.news-desc {
+    color: #ffffff; /* Set the description text to white */
+}

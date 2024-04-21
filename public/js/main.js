@@ -536,7 +536,7 @@ function loadGamingNews() {
   
   function createNewsItem(article) {
     const card = document.createElement('div');
-    card.className = 'card mb-3';
+    card.className = 'card mb-3 bg-dark';
   
     const img = document.createElement('img');
     img.src = article.image; 
@@ -550,11 +550,11 @@ function loadGamingNews() {
     cardBody.className = 'card-body';
   
     const title = document.createElement('h5');
-    title.className = 'card-title';
+    title.className = 'card-title news-title';
     title.textContent = article.title;
   
     const text = document.createElement('p');
-    text.className = 'card-text';
+    text.className = 'card-text news-desc';
     text.textContent = article.description;
   
     const readMore = document.createElement('a');
