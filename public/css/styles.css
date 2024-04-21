@@ -102,3 +102,16 @@ a:hover {
 .card-text-news-desc {
     color: #ffffff; /* Set the description text to white */
 }
+
+/* Additional Footer Information Styles */
+.footer-info {
+    font-size: 1rem; /* Standard font size for footer text */
+    margin-top: 1rem; /* Spacing above the footer text */
+    margin-bottom: 0.25rem; /* Spacing below the footer text */
+}
+
+/* Generic paragraph tag styling within the footer for additional text */
+.footer p {
+    margin-bottom: 0.25rem; /* Small margin for closely stacked text */
+    font-size: 0.9rem; /* Slightly smaller font size for legal text and copyright */
+}
