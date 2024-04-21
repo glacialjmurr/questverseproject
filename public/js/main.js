@@ -550,11 +550,11 @@ function loadGamingNews() {
     cardBody.className = 'card-body';
   
     const title = document.createElement('h5');
-    title.className = 'card-title news-title';
+    title.className = 'card-title-news-title';
     title.textContent = article.title;
   
     const text = document.createElement('p');
-    text.className = 'card-text news-desc';
+    text.className = 'card-text-news-desc';
     text.textContent = article.description;
   
     const readMore = document.createElement('a');
