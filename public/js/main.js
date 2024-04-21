@@ -38,7 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
         loadRecommendedUsers();
     });
 
-    document.querySelector('a[data-target="profileContent"]').addEventListener('click', loadUserProfile);
+    document.querySelector('a[data-target="profileContent"]').addEventListener('click', function() {
+        const profileContent = document.getElementById('profileContent');
+        profileContent.style.display="block";
+        loadUserProfile();
+    });
 
     document.addEventListener('click', function(event) {
         if (event.target.matches('a[data-target="newsContent"]')) {
