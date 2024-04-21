@@ -1,127 +1,356 @@
-/* General Modal Enhancements */
+
 .modal-dialog {
-    max-width: 800px; /* Wider modal for better content visibility */
-    margin: 1.75rem auto; /* Centers the modal vertically and horizontally */
+    max-width: 800px;
+    margin: 1.75rem auto; 
 }
 
 .modal-content {
-    background-color: #202124; /* Dark background for the modal content */
-    color: #e8eaed; /* Light color for the text */
-    border: 1px solid #5f6368; /* Subtle border to enhance contrast */
+    background-color: #202124; 
+    color: #e8eaed; 
+    border: 1px solid #5f6368;
 }
 
 .modal-header, .modal-body, .modal-footer {
-    border-bottom: 1px solid #5f6368; /* Adds a subtle line to separate modal sections */
+    border-bottom: 1px solid #5f6368; 
 }
 
 .modal-title {
-    color: #fff; /* White color for the title for better readability */
+    color: #fff; 
 }
 
 .btn-close {
-    filter: invert(1); /* Makes the close button white */
+    filter: invert(1); 
 }
 
-/* Textarea Customization */
 textarea#postText {
-    height: 150px; /* Larger text area to encourage more content */
-    background-color: #303134; /* Dark background for the textarea */
-    color: #e8eaed; /* Light color for the text */
-    border: 1px solid #5f6368; /* Subtle border matching the modal content */
+    height: 150px; 
+    background-color: #303134; 
+    color: #e8eaed;
+    border: 1px solid #5f6368;
 }
 
-/* Modal Footer Button Enhancements */
+
 .modal-footer {
-    justify-content: center; /* Center align the buttons in the footer */
-    padding: 1rem; /* More padding for better spacing */
+    justify-content: center;
+    padding: 1rem;
 }
 
 .btn-secondary {
-    background-color: #d14836; /* Red color for the cancel/close button */
-    color: #ffffff; /* White text color */
+    background-color: #d14836; 
+    color: #ffffff; 
 }
 
 .btn-secondary:hover {
-    background-color: #b23121; /* Darker shade of red on hover */
-    color: #ffffff; /* Maintain white text color on hover */
+    background-color: #b23121; 
+    color: #ffffff; 
 }
 
 .btn-primary {
-    background-color: #fbbc05; /* Orange color for the post button */
-    color: #202124; /* Dark text color for better contrast */
+    background-color: #fbbc05; 
+    color: #202124;
 }
 
 .btn-primary:hover {
-    background-color: #e2a600; /* Darker shade of orange on hover */
-    color: #202124; /* Maintain dark text color on hover */
+    background-color: #e2a600; 
+    color: #202124; 
 }
 
-/* Apply dark theme to the entire card, not just parts */
+
 .card {
-    background-color: #202124; /* Dark theme background color */
-    color: #ffffff; /* Light theme text color for readability */
+    background-color: #202124;
+    color: #ffffff; 
 }
 
-/* Update the logo image size and styling */
+
 .card-img-top {
-    width: 100%; /* Full width */
-    height: auto; /* Maintain aspect ratio */
-    padding: 1rem; /* Padding around the image */
-    box-sizing: border-box; /* Include padding in width calculation */
-    background-color: #202124; /* Match the card's background color */
+    width: 100%;
+    height: auto;
+    padding: 1rem; 
+    box-sizing: border-box;
+    background-color: #202124;
 }
 
-/* Style the form elements to match the dark theme */
+
 .form-control {
-    background-color: #303134; /* Darker background for form elements */
-    color: #e8eaed; /* Lighter color for text */
-    border: 1px solid #5f6368; /* Subtle border color */
+    background-color: #303134; 
+    color: #e8eaed; 
+    border: 1px solid #5f6368; 
 }
 
-/* Additional styles for the hyperlink to switch between login and register */
+
 a {
-    color: #fbbc05; /* Make links stand out with a bright color */
-    text-decoration: underline; /* Underline for clarity */
+    color: #fbbc05; 
+    text-decoration: underline; 
 }
 
 a:hover {
-    color: #ffffff; /* White color on hover for better visibility */
+    color: #ffffff; 
 }
 
-/* Style the card title to be more pronounced */
+
 .card-title {
-    font-size: 1.5rem; /* Larger font size */
-    color: #fbbc05; /* Make it the same color as your primary buttons for consistency */
+    font-size: 1.5rem; 
+    color: #fbbc05;
 }
 
 .card-title-news-title {
-    color: #ffffff; /* Set the title text to white */
+    color: #ffffff; 
 }
 
-/* Assuming the description has a class 'news-desc' */
+
 .card-text-news-desc {
-    color: #ffffff; /* Set the description text to white */
+    color: #ffffff; 
 }
 
-/* Additional Footer Information Styles */
+
 .footer-info {
-    font-size: 1rem; /* Standard font size for footer text */
-    margin-top: 1rem; /* Spacing above the footer text */
-    margin-bottom: 0.25rem; /* Spacing below the footer text */
+    font-size: 1rem; 
+    margin-top: 1rem;
+    margin-bottom: 0.25rem; 
 }
 
-/* Generic paragraph tag styling within the footer for additional text */
+
 .footer p {
-    margin-bottom: 0.25rem; /* Small margin for closely stacked text */
-    font-size: 0.9rem; /* Slightly smaller font size for legal text and copyright */
+    margin-bottom: 0.25rem; 
+    font-size: 0.9rem; 
 }
 
-.footer {
-    border-top: 3px solid #4f545c; /* Add a top border with a subtle color */
-}
 
-/* Questverse Text Style */
 .questverse-text {
-    color: #d1d1d1; /* Lighter grey for visibility */
-    margin-right: 0; /* Align to the far left */
+    color: #d1d1d1; 
+    margin-right: 0; 
 }
+
+
+
+.card-header {
+    font-size: 1.25rem; 
+    font-weight: bold; 
+    color: orange; 
+  }
+  
+  .card-body-post .card-text-post {
+    color: white;
+    padding: 15px;
+  }
+  
+  #createPostBtn {
+    display: block; 
+    width: 80%; 
+    margin: 20px auto 10px; 
+    padding: 10px 0; 
+    background-color: orange; 
+    border-color: orange;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  #createPostBtn:hover {
+    background-color: orangered;
+    border-color: orangered;
+  }
+  
+  .btn-primary-news{
+    background-color: orange; 
+    border-color: black; 
+  
+  }
+  
+  .btn-primary-news:hover{
+    background-color: orangered; 
+  }
+  
+  .btn-primary-likenews{
+    background-color: orange;
+    border-color: black; 
+  }
+  
+  .btn-primary-likenews:hover{
+    background-color: orangered; 
+  }
+  
+  #homeContent {
+    min-height: 100%; 
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content-section {
+    flex: 1; 
+  }
+  
+  .footer {
+    border-top: 3px solid #4f545c;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+
+  .user-post-avatar {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    margin: 10px; 
+}
+
+.navbar .nav-link {
+      color: grey; 
+      transition: color 0.3s; 
+  }
+
+  .navbar .nav-link:hover {
+      color: white; 
+  }
+
+  .recommended-users {
+  background: #2c2f33;
+  
+  border: 1px solid #4f545c; 
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+  margin-bottom: 20px;
+}
+
+.recommended-label {
+  color: #d1d1d1;
+  text-align: left; 
+  font-weight: 700; 
+  margin-bottom: 15px; 
+  border-bottom: 2px solid #4f545c; 
+  padding-bottom: 5px; 
+}
+
+.recommended-users .user-name {
+  background: #373b40; 
+  margin: 10px 0; 
+  padding: 12px 15px; 
+  border-radius: 4px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+  display: block; 
+  font-weight: 500; 
+}
+
+.recommended-users .user-name:hover {
+  background: #3e4349; 
+  color: #ffffff;
+  text-decoration: none; 
+}
+
+  
+.cover-container {
+    position: relative;
+    width: 100%;
+}
+
+.coverPhoto {
+    height: 300px; 
+    position: relative;
+    z-index: 1;
+}
+
+.circular-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: black;
+    padding:0;
+    border: solid 2px white;
+    position: absolute;
+    top: 20%;
+    left: 45%; 
+    bottom: 50%;
+    transform: translateX(-30%, -5%);
+    z-index: 3;
+}
+
+.level-display {
+color: orange; 
+font-size: 3rem; 
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+}
+
+.user-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.white-bar {
+    height: 75px;
+    background-color: orange;
+    color: black; 
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    z-index: 2; 
+}
+
+.white-bar-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    font-weight: bold; 
+    font-size: 1.2em;
+}
+
+#follow-btn {
+background-color: orangered; 
+border: none;
+color: black;
+padding: 5px 10px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+border-radius: 12px; 
+box-shadow: 0 4px #999; 
+}
+
+
+#follow-btn:hover {
+background-color: red; 
+box-shadow: 0 5px #666;
+transform: translateY(-2px); 
+}
+
+
+#follow-btn:active {
+background-color: #d35400; 
+box-shadow: 0 2px #666;
+transform: translateY(2px);
+}
+
+.dark-theme {
+    background-color: #343a40; 
+    color: white; 
+}
+
+    .dark-theme .card {
+    background-color: #484f56;
+}
+
+
+.card h5.card-title {
+    color: #007bff; 
+    font-weight: bold;
+   }
+
+   .card p.card-text {
+    color: #333; 
+   }
+
+   .like-btn, .share-btn {
+   margin-left: 10px;
+}
+

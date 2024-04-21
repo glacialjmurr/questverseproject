@@ -10,8 +10,8 @@ const commentSchema = new mongoose.Schema({
 const postSchema = new mongoose.Schema({
   content: { type: String, required: true },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }], // Array of user IDs who liked the post
-  comments: [commentSchema], // Embedded sub-document for comments
+  likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }], 
+  comments: [commentSchema], 
 }, { timestamps: true });
 
 const Post = mongoose.model('Post', postSchema);

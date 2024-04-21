@@ -36,7 +36,7 @@ router.get('/all', isAuthenticated, async (req, res) => {
 
 router.get('/followed', isAuthenticated, async (req, res) => {
   try {
-    // req.user should have the authenticated user's data, including the following list
+
     const followedPosts = await Post.find({
       userId: { $in: req.user.following }
     }).populate('userId');
@@ -50,7 +50,6 @@ router.get('/followed', isAuthenticated, async (req, res) => {
 // Endpoint to create a new post
 router.post('/', isAuthenticated, async (req, res) => {
   try {
-    // Retrieve the authenticated user's document (including the username)
     const user = await User.findById(req.user._id);
 
     // Create a new post with the content and the user's document
@@ -63,7 +62,7 @@ router.post('/', isAuthenticated, async (req, res) => {
     await newPost.save();
 
     // Increment user XP and check for level up
-    user.xp += 10; // Increment XP by 10 or some other value you see fit
+    user.xp += 20; // Increment XP by 20
     if (user.xp >= 100) {
       user.level+=1; // Increment the user's level
       user.xp -= 100; // Reset XP to zero, but keep the overflow
@@ -91,7 +90,7 @@ router.post('/', isAuthenticated, async (req, res) => {
   }
 });
 
-// Get posts by a specific user
+// Get posts by a logged in user
 router.get('/byuser', (req, res) => {
   // Check if user is logged in
   if (!req.session.userId) {
@@ -114,7 +113,6 @@ router.get('/byuser', (req, res) => {
 
 
 // Search for a user by username
-// In userRoutes.js or postRoutes.js, based on your organization
 router.get('/user/:username', async (req, res) => {
   try {
     const user = await User.findOne({ username: req.params.username })
@@ -128,7 +126,6 @@ router.get('/user/:username', async (req, res) => {
     const followingCount = user.following ? user.following.length : 0;
     const level = user.level;
 
-    // Optionally include user's posts in the response
     const posts = await Post.find({ userId: user._id })
                             .populate('userId', 'username');
 
@@ -139,7 +136,7 @@ router.get('/user/:username', async (req, res) => {
       followingCount,
       postsCount,
       level,
-      posts  // You might or might not want to include posts based on your frontend needs
+      posts 
     });
   } catch (error) {
     console.error(error);

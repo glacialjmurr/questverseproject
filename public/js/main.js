@@ -7,8 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initially show the register content
     document.getElementById('registerForm').style.display = 'block';
 
-    
-
+    //Delete account listener
     document.getElementById('deleteAccountBtn').addEventListener('click', () => {
         if (confirm('Are you sure you want to delete your account?')) {
             deleteAccount();
@@ -43,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener('click', function(event) {
         if (event.target.matches('a[data-target="newsContent"]')) {
-          // Prevent default link behavior
           event.preventDefault();
           
           // Hide all content sections
@@ -76,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                // Include any necessary headers like authorization tokens
             },
             body: JSON.stringify({ content: postContent })
             })
@@ -172,19 +169,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Implement search functionality
+    // Search functionality
     document.body.addEventListener('keypress', function(e) {
         if (e.target.id === 'searchUserInput' && e.key === 'Enter') {
-            e.preventDefault();  // Prevent the default form submission
+            e.preventDefault();  
             const username = e.target.value;
             searchUserByUsername(username);
-            e.target.value = '';  // Optional: Clear the search field after search
+            e.target.value = '';  
         }
     });
 
 });
 
-// This function adds posts to the home feed
+// Add posts to the home feed
 function addPostToHomeFeed(postData) {
     const homePostContainer = document.getElementById('postContainer');
     // Check if container is available
@@ -197,11 +194,10 @@ function addPostToHomeFeed(postData) {
 }
 
 function loadFollowedPosts() {
-    fetch('/api/posts/followed', { // Adjust the endpoint if necessary
+    fetch('/api/posts/followed', {
         credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
-            // Include any necessary headers like authorization tokens
         }
     })
     .then(response => {
@@ -234,7 +230,7 @@ function refreshFollowedPosts() {
 
  
 
-// This function adds posts to the user profile feed
+// Add posts to the user profile feed
 function addPostToUserProfile(postData) {
     const userProfileContainer = document.getElementById('userPostsContainer');
     // Check if container is available
@@ -295,6 +291,7 @@ function clearProfile() {
     }
 }
 
+// Load logged in users profile
 function loadUserProfile() {
     // Clear the current profile information
     clearProfile();
@@ -317,7 +314,7 @@ function loadUserProfile() {
         const userLevelDisplay = document.getElementById('userLevelDisplay');
         userLevelDisplay.textContent = `LVL ${stats.level}`;
   
-        // Continue to fetch and display the user's posts...
+        // Continue to fetch and display the user's posts
         return fetch('/api/posts/byuser', { credentials: 'include' });
       })
       .then(response => {
@@ -328,7 +325,7 @@ function loadUserProfile() {
       })
       .then(posts => { // 'posts' is an array of postData
         posts.forEach(postData => {
-          addPostToUserProfile(postData); // And here is where you call the other function
+          addPostToUserProfile(postData); 
         });
       })
       .catch(err => {
@@ -337,14 +334,12 @@ function loadUserProfile() {
   }
 
   
-
+// Loading a different users profile
 function searchUserByUsername(username) {
-    clearProfile();  // Clear profile before loading new data
+    clearProfile();  
     
-    
-
-    // Fetch the user's posts by username. Adjust the endpoint as necessary.
-    fetch(`/api/posts/user/${username}`, { // Assuming you create this endpoint
+    // Fetch the user's posts by username. 
+    fetch(`/api/posts/user/${username}`, { 
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -368,7 +363,7 @@ function searchUserByUsername(username) {
             section.style.display = 'none';
         });
         document.getElementById('profileContent').style.display = 'block';
-        const { user, posts, postsCount, followersCount, followingCount, level  } = data; // Assuming the backend sends it in this structure
+        const { user, posts, postsCount, followersCount, followingCount, level  } = data; 
         const userProfileContainer = document.getElementById('userPostsContainer');
         userProfileContainer.innerHTML = ''; // Clear existing posts
 
@@ -397,7 +392,6 @@ function searchUserByUsername(username) {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            // Include any necessary headers like authorization tokens
         }
     });
 })
@@ -437,7 +431,6 @@ function searchUserByUsername(username) {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Include other necessary headers, such as authorization tokens
                 }
             })
             .then(response => {
@@ -460,7 +453,7 @@ function searchUserByUsername(username) {
                         // Get the current follower count and increment it by one
                         let currentFollowersCount = parseInt(followersCountElement.textContent);
                         currentFollowersCount += newFollowStatus ? 1 : -1; // Increment or decrement based on follow/unfollow action
-                        followersCountElement.textContent = currentFollowersCount.toString(); // Update the HTML element
+                        followersCountElement.textContent = currentFollowersCount.toString(); 
     }
 
                 // Refresh posts after following/unfollowing
@@ -476,6 +469,7 @@ function searchUserByUsername(username) {
     });
     }
 
+    // Follow function
     function toggleFollow(userId, isFollowing) {
         // Determine the correct endpoint based on whether the user is currently being followed
         const endpoint = isFollowing ? `/api/users/unfollow/${userId}` : `/api/users/follow/${userId}`;
@@ -484,7 +478,6 @@ function searchUserByUsername(username) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                // Include any necessary headers, like authorization tokens
             }
         })
         .then(response => {
@@ -544,9 +537,9 @@ function loadGamingNews() {
     img.src = article.image; 
     img.className = 'card-img-top';
     img.alt = 'News Image';
-    img.style.width = '100%';  // Set width to be 100% of the container
-    img.style.height = '275px';  // Set a fixed height
-    img.style.objectFit = 'cover';  // Cover the dimension box without stretching
+    img.style.width = '100%';  
+    img.style.height = '275px';  
+    img.style.objectFit = 'cover';  
   
     const cardBody = document.createElement('div');
     cardBody.className = 'card-body';
@@ -582,7 +575,7 @@ function loadGamingNews() {
 
   
   
-  // This function should be called when the home content is loaded
+  // Loads random usernames from the database 
 function loadRecommendedUsers() {
   fetch('/api/users/recommended', { credentials: 'include' })
     .then(response => {
@@ -607,20 +600,19 @@ function loadRecommendedUsers() {
     });
 }
 
-// Helper function to create HTML element for user
+// Helper function to create HTML element for a user and loads the clicked users page
 function createUserElement(user) {
     const userDiv = document.createElement('div');
-    userDiv.classList.add('user-name'); // This class should match the one defined in the CSS
-    userDiv.innerHTML = `<p class="mb-0">${user.username}</p>`; // Use a paragraph with a class to remove default margin
+    userDiv.classList.add('user-name'); 
+    userDiv.innerHTML = `<p class="mb-0">${user.username}</p>`; 
     userDiv.addEventListener('click', () => {
-      // Add event listener for click if you want to do something when user clicks on a recommended user
-      // For example, redirect to the user's profile or load the user's profile in the existing page
-      console.log('User clicked:', user.username); // Placeholder for actual functionality
+      console.log('User clicked:', user.username); 
       searchUserByUsername(user.username);
     });
     return userDiv;
   }
 
+// Footer refresh that is called after making a post
 function refreshFooterLevel() {
     // Fetch the current user's level and XP
     fetch('/api/users/mystats', { credentials: 'include' })
@@ -660,7 +652,6 @@ function refreshFooterLevel() {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
-            // Include any necessary headers like authorization tokens
         }
     })
     .then(response => {
@@ -671,7 +662,6 @@ function refreshFooterLevel() {
             section.style.display = 'none';
         });
         document.getElementById('registerForm').style.display = 'block';
-        // Optionally, display a confirmation message
         alert('Your account has been successfully deleted.');
     })
     .catch(error => {
@@ -679,8 +669,3 @@ function refreshFooterLevel() {
         alert('Failed to delete account: ' + error.message);
     });
 }
-
-  
-  
-
-  

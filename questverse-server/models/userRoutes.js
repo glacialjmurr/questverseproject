@@ -1,7 +1,7 @@
 // userRoutes.js
 const express = require('express');
-const User = require('./User'); // Adjust the path as necessary
-const Post = require('./Posts'); // Ensure the path is correct.
+const User = require('./User'); 
+const Post = require('./Posts'); 
 const router = express.Router();
 
 async function isAuthenticated(req, res, next) {
@@ -68,8 +68,7 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: "Authentication failed. Wrong password." });
     }
 
-    // At this point, the user is authenticated
-    // Logic to manage session or token here, e.g., set session user ID
+    // Logic to manage session
     if (isMatch) {
       req.session.userId = user._id; 
       req.session.save()
@@ -89,8 +88,6 @@ router.post('/login', async (req, res) => {
   router.get('/logout', (req, res) => {
     // Clear user-related data from the session
     delete req.session.userId;
-    // Optionally, clear any other user-related data from the session
-
     res.status(200).json({ message: 'Logout successful' });
 });
 
@@ -192,15 +189,15 @@ router.get('/mystats', isAuthenticated, async (req, res) => {
     const postsCount = await Post.countDocuments({ userId });
     const followersCount = req.user.followers.length;
     const followingCount = req.user.following.length;
-    const level = req.user.level; // Assuming level is stored in the user document
-    const xp = req.user.xp; // Assuming xp is stored in the user document
+    const level = req.user.level; 
+    const xp = req.user.xp; 
 
     res.json({
       postsCount,
       followersCount,
       followingCount,
-      level, // Include level in the response
-      xp // Include xp in the response
+      level, 
+      xp 
     });
   } catch (error) {
     console.error('Failed to fetch user stats:', error);
@@ -214,7 +211,7 @@ router.get('/recommended', isAuthenticated, async (req, res) => {
     const currentUser = req.user;
     const randomUsers = await User.aggregate([
       { $match: { _id: { $ne: currentUser._id } } }, // Exclude the current user
-      { $sample: { size: 5 } } // Get 5 random documents
+      { $sample: { size: 5 } } // Get 5 random users
     ]).exec();
 
     res.json(randomUsers);
@@ -236,6 +233,8 @@ router.delete('/delete', async (req, res) => {
 
       // Delete the user from the database
       await User.findByIdAndDelete(userId);
+
+      await Posts.deleteMany({ userId: userId });
 
       // Clear the user session
       req.session.destroy((err) => {

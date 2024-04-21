@@ -9,7 +9,7 @@ router.get('/gaming-news', async (req, res) => {
     q: 'gaming', // Query for gaming news
     lang: 'en', // Language set to English
     sortBy: 'publishedAt', // Sort by publication date
-    token: 'b2e192ed698e2800a0123a6f504d9587' // Your GNews API key
+    token: 'b2e192ed698e2800a0123a6f504d9587' 
   };
 
 
