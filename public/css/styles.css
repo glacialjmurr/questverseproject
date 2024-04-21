@@ -55,3 +55,47 @@ textarea#postText {
     background-color: #e2a600; /* Darker shade of orange on hover */
     color: #202124; /* Maintain dark text color on hover */
 }
+
+/* Container for the form */
+.form-container {
+    background-color: #202124;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 500px; /* Increased size of the form */
+    width: 100%;
+    margin: 20px auto; /* Center the form */
+}
+
+/* Image at the top of the form */
+.card-img-top {
+    height: 120px; /* Adjust height as needed */
+    object-fit: contain;
+    background-color: #202124; /* Same as form background for seamless design */
+    padding: 10px;
+    border-top-left-radius: 8px; /* Match the border radius of form-container */
+    border-top-right-radius: 8px;
+}
+
+
+
+/* Additional styles for labels and inputs if needed */
+.form-label {
+    color: #ffffff;
+}
+
+.form-control {
+    background-color: #303134;
+    color: #ffffff;
+    border: 1px solid #5f6368;
+}
+
+/* Link styling */
+a {
+    color: #fbbc05; /* Brand color for consistency */
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #ffffff; /* Light color on hover for visibility */
+}
+
