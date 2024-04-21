@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initially show the register content
     document.getElementById('registerForm').style.display = 'block';
 
+    
+
     document.getElementById('deleteAccountBtn').addEventListener('click', () => {
         if (confirm('Are you sure you want to delete your account?')) {
             deleteAccount();

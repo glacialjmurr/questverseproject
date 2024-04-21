@@ -11,6 +11,18 @@
 
 <body class ="bg-dark text-white">
 
+  <script>
+    function showLoginForm() {
+      document.getElementById('loginForm').style.display = 'block';
+      document.getElementById('registerForm').style.display = 'none';
+    }
+
+    function showRegisterForm() {
+      document.getElementById('registerForm').style.display = 'block';
+      document.getElementById('loginForm').style.display = 'none';
+    }
+</script>
+
 <style>
 
 
@@ -486,6 +498,18 @@
     </div>
 </div>
 </div>
+<footer>
+  <footer class="footer mt-auto py-3 bg-dark" data-bs-theme="dark"> 
+      <div class="container">
+        <h1 class="text-body-secondary" id="levelDisplay">Level 1</h1>
+        <div class="progress" role="progressbar" aria-label="XP Progress" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar bg-success" style="width: 25%">25/100</div>
+        </div>
+        <p class="footer-info">Developed by Josh Murray</p>
+        <p class="questverse-text">© Questverse - Social Media for Gamers</p>
+      </div> 
+    </footer>
+</footer>
 </div>
 
   <div id="settingsContent" class="content-section" style="display:none;">
@@ -557,6 +581,18 @@
         </div>
     </div>
 </main>
+<footer>
+  <footer class="footer mt-auto py-3 bg-dark" data-bs-theme="dark"> 
+      <div class="container">
+        <h1 class="text-body-secondary" id="levelDisplay">Level 1</h1>
+        <div class="progress" role="progressbar" aria-label="XP Progress" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar bg-success" style="width: 25%">25/100</div>
+        </div>
+        <p class="footer-info">Developed by Josh Murray</p>
+        <p class="questverse-text">© Questverse - Social Media for Gamers</p>
+      </div> 
+    </footer>
+</footer>
   </div>
 
   <div id="newsContent" class="content-section" style="display:none;">
@@ -627,37 +663,8 @@
   </div>
 </main>
 
-<script>
-
-document.addEventListener('DOMContentLoaded', function() {
-// Handle Like Button Click
-document.querySelectorAll('.like-btn').forEach(button => {
-  button.addEventListener('click', function() {
-      this.classList.toggle('liked');
-  });
-});
-
-// Handle Share Button Click
-document.querySelectorAll('.share-btn').forEach(button => {
-  button.addEventListener('click', function() {
-      alert('Share functionality will be implemented later.');
-      // Future implementation: Direct message or copy link
-  });
-});
-});
-
-    function showLoginForm() {
-      document.getElementById('loginForm').style.display = 'block';
-      document.getElementById('registerForm').style.display = 'none';
-    }
-
-    function showRegisterForm() {
-      document.getElementById('registerForm').style.display = 'block';
-      document.getElementById('loginForm').style.display = 'none';
-    }
 
 
-</script>
   </div>
 
 
