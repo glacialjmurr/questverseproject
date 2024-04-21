@@ -22,7 +22,7 @@ app.use(session({
 }));
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://51.20.87.52:3000'], 
+  origin: ['http://localhost:3000', 'http://13.48.24.38:3000'], 
   credentials: true, 
 }));
 
