@@ -1,157 +1,57 @@
-/* General Body Styles */
-body, html {
-    height: 100%;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;
-    color: #fff;
+/* General Modal Enhancements */
+.modal-dialog {
+    max-width: 800px; /* Wider modal for better content visibility */
+    margin: 1.75rem auto; /* Centers the modal vertically and horizontally */
 }
 
-/* Navbar Styles */
-.navbar {
-    background-color: #202124;
-    padding: 0.8rem 2rem;
-    border-bottom: 1px solid #5f6368;
+.modal-content {
+    background-color: #202124; /* Dark background for the modal content */
+    color: #e8eaed; /* Light color for the text */
+    border: 1px solid #5f6368; /* Subtle border to enhance contrast */
 }
 
-.navbar-brand img {
-    height: auto;
-    width: 50px; /* Adjust the size of your logo */
+.modal-header, .modal-body, .modal-footer {
+    border-bottom: 1px solid #5f6368; /* Adds a subtle line to separate modal sections */
 }
 
-.navbar-toggler {
-    border-color: #5f6368;
+.modal-title {
+    color: #fff; /* White color for the title for better readability */
 }
 
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23FFF' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+.btn-close {
+    filter: invert(1); /* Makes the close button white */
 }
 
-.nav-link {
-    margin-right: 1rem;
-    color: #e8eaed;
-    transition: color 0.3s ease;
+/* Textarea Customization */
+textarea#postText {
+    height: 150px; /* Larger text area to encourage more content */
+    background-color: #303134; /* Dark background for the textarea */
+    color: #e8eaed; /* Light color for the text */
+    border: 1px solid #5f6368; /* Subtle border matching the modal content */
 }
 
-.nav-link:hover, .nav-link:focus {
-    color: #fff;
-    text-decoration: none;
+/* Modal Footer Button Enhancements */
+.modal-footer {
+    justify-content: center; /* Center align the buttons in the footer */
+    padding: 1rem; /* More padding for better spacing */
 }
 
-/* Card Styles */
-.card {
-    background-color: #202124;
-    border: none;
+.btn-secondary {
+    background-color: #d14836; /* Red color for the cancel/close button */
+    color: #ffffff; /* White text color */
 }
 
-.card-header {
-    background-color: #1a73e8;
-    color: #fff;
+.btn-secondary:hover {
+    background-color: #b23121; /* Darker shade of red on hover */
+    color: #ffffff; /* Maintain white text color on hover */
 }
 
-.card-body {
-    color: #e8eaed;
+.btn-primary {
+    background-color: #fbbc05; /* Orange color for the post button */
+    color: #202124; /* Dark text color for better contrast */
 }
 
-.card-title {
-    color: #fff;
-}
-
-.card-text {
-    color: #9aa0a6;
-}
-
-/* Buttons */
-.btn {
-    background-color: #1a73e8;
-    border: none;
-    transition: background-color 0.2s;
-}
-
-.btn:hover {
-    background-color: #357ae8;
-}
-
-.btn-primary-news, .btn-primary-likenews {
-    background-color: #34a853;
-    color: #fff;
-}
-
-.btn-primary-news:hover, .btn-primary-likenews:hover {
-    background-color: #0f7b42;
-}
-
-/* Input Styles */
-input[type="email"], input[type="password"], input[type="text"], .form-control {
-    background-color: #202124;
-    border: 1px solid #5f6368;
-    color: #e8eaed;
-    padding: 10px;
-    margin-top: 8px;
-}
-
-input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focus, .form-control:focus {
-    border-color: #1a73e8;
-    outline: none;
-    box-shadow: 0 0 0 2px #1a73e8;
-}
-
-/* Footer Styles */
-.footer {
-    background-color: #202124;
-    color: #e8eaed;
-    padding: 10px 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-}
-
-.progress {
-    background-color: #5f6368;
-    border-radius: 20px;
-}
-
-.progress-bar {
-    background-color: #34a853;
-    width: 50%; /* Dynamic based on user progress */
-}
-
-/* Hover Effects on Lists */
-.recommended-users .user-name:hover, .list-group-item:hover {
-    background-color: #303134;
-    cursor: pointer;
-}
-
-/* Custom Scrollbars */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #202124;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #5f6368;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #3c4043;
-}
-
-/* Media Queries for Responsive Adjustments */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-    }
-
-    .nav-item {
-        margin-bottom: 1rem;
-    }
-
-    .card-body {
-        padding: 1rem;
-    }
+.btn-primary:hover {
+    background-color: #e2a600; /* Darker shade of orange on hover */
+    color: #202124; /* Maintain dark text color on hover */
 }
