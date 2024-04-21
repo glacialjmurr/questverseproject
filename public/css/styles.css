@@ -56,46 +56,41 @@ textarea#postText {
     color: #202124; /* Maintain dark text color on hover */
 }
 
-/* Container for the form */
-.form-container {
-    background-color: #202124;
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 500px; /* Increased size of the form */
-    width: 100%;
-    margin: 20px auto; /* Center the form */
+/* Apply dark theme to the entire card, not just parts */
+.card {
+    background-color: #202124; /* Dark theme background color */
+    color: #ffffff; /* Light theme text color for readability */
 }
 
-/* Image at the top of the form */
+/* Update the logo image size and styling */
 .card-img-top {
-    height: 120px; /* Adjust height as needed */
-    object-fit: contain;
-    background-color: #202124; /* Same as form background for seamless design */
-    padding: 10px;
-    border-top-left-radius: 8px; /* Match the border radius of form-container */
-    border-top-right-radius: 8px;
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    padding: 1rem; /* Padding around the image */
+    box-sizing: border-box; /* Include padding in width calculation */
+    background-color: #202124; /* Match the card's background color */
 }
 
-
-
-/* Additional styles for labels and inputs if needed */
-.form-label {
-    color: #ffffff;
-}
-
+/* Style the form elements to match the dark theme */
 .form-control {
-    background-color: #303134;
-    color: #ffffff;
-    border: 1px solid #5f6368;
+    background-color: #303134; /* Darker background for form elements */
+    color: #e8eaed; /* Lighter color for text */
+    border: 1px solid #5f6368; /* Subtle border color */
 }
 
-/* Link styling */
+/* Additional styles for the hyperlink to switch between login and register */
 a {
-    color: #fbbc05; /* Brand color for consistency */
-    text-decoration: underline;
+    color: #fbbc05; /* Make links stand out with a bright color */
+    text-decoration: underline; /* Underline for clarity */
 }
 
 a:hover {
-    color: #ffffff; /* Light color on hover for visibility */
+    color: #ffffff; /* White color on hover for better visibility */
+}
+
+/* Style the card title to be more pronounced */
+.card-title {
+    font-size: 1.5rem; /* Larger font size */
+    color: #fbbc05; /* Make it the same color as your primary buttons for consistency */
 }
 
