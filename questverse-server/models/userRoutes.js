@@ -234,7 +234,7 @@ router.delete('/delete', async (req, res) => {
       // Delete the user from the database
       await User.findByIdAndDelete(userId);
 
-      await Posts.deleteMany({ userId: userId });
+      await Post.deleteMany({ userId: userId });
 
       // Clear the user session
       req.session.destroy((err) => {
