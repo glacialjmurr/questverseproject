@@ -115,3 +115,13 @@ a:hover {
     margin-bottom: 0.25rem; /* Small margin for closely stacked text */
     font-size: 0.9rem; /* Slightly smaller font size for legal text and copyright */
 }
+
+.footer {
+    border-top: 3px solid #4f545c; /* Add a top border with a subtle color */
+}
+
+/* Questverse Text Style */
+.questverse-text {
+    color: #d1d1d1; /* Lighter grey for visibility */
+    margin-right: 0; /* Align to the far left */
+}
