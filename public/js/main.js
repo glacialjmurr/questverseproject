@@ -327,7 +327,7 @@ function loadUserProfile() {
         }
         return response.json();
       })
-      .then(posts => { // 'posts' is an array of postData
+      .then(posts => {
         posts.forEach(postData => {
           addPostToUserProfile(postData); 
         });
@@ -515,13 +515,10 @@ function loadGamingNews() {
         return response.json();
       })
       .then(data => {
-        // data might be the object containing the articles, not the array itself
-        const articles = data; // assuming data is the object that contains all articles
+        const articles = data; 
         const newsFeed = document.getElementById('newsFeed');
         newsFeed.innerHTML = ''; // Clear existing news
   
-        // If articles is directly the object containing all articles,
-        // you don't need to check if it's an array
         Object.values(articles).forEach(article => {
           const newsItem = createNewsItem(article);
           newsFeed.appendChild(newsItem);
